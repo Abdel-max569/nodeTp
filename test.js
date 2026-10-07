@@ -23,11 +23,10 @@ test("Cas normal", () => {
 })
 
 
-test("Cas où le nombre d'argument n'est pas respacter", () => {
+test("Cas où le nombre d'argument n'est pas respecté", () => {
   // Arrange
-  let nbr1 = 14;
-  let nbr2 = 3;
-  let nbr3 = 1;
+  let nbr1 = 54;
+  let nbr2 = 6;
   const resultatAttendut = ARGUMENT_MANQUANT_ERROR;
 
   // Act
@@ -42,11 +41,11 @@ test("Cas où le nombre d'argument n'est pas respacter", () => {
 });
 
 
-test("Cas où le type d'argument est invalide", () => {
+test("Cas où le type d'argument n'est pas valide", () => {
   // Arrange
-  let nbr1 = 14;
-  let nbr2 = 3;
-  let nbr3 = "12345";
+  let nbr1 = 8;
+  let nbr2 = 10;
+  let nbr3 = "abdel";
   const resultatAttendut = TYPE_ARGUMENT_INVALID;
 
   // Act
