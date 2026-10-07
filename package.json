@@ -1,0 +1,12 @@
+{
+  "name": "cours",
+  "version": "1.0.0",
+  "description": "Introduction à node.js",
+  "license": "MIT",
+  "author": "AGOUDA Abdel Hakou",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
