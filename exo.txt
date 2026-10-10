@@ -1,0 +1,12 @@
+une fonction qui s appelle analyseFile qui prend le nom du fichier en param et qui return la size , uid , gid,nombre de phrase, le nombre de mot et le nombre de lettres , nombre de chunc. seulement les fichier txt 
+
+
+avant de faire le programme , il faut les test 
+il faut utiliser lessous fonction telque getStat,getWordCount,getPhrase,getChuncCount,getLetterCount 
+
+
+le fichier sera analyse_file.js
+
+test : test_analyse_file.js
+
+reflexion.txt
