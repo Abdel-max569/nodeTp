@@ -64,7 +64,7 @@ async function lire_ecrire_fichier_avec_open() {
     }
 
 }
-// afficher_statistiques_du_fichier()
+afficher_statistiques_du_fichier()
 async function afficher_statistiques_du_fichier() {
     try {
         const stats = await fs.stat('./files/fichier1.txt');
@@ -75,7 +75,7 @@ async function afficher_statistiques_du_fichier() {
         console.log(error.message);
     }
 }
-lire_fichier_en_stream()
+// lire_fichier_en_stream()
 function lire_fichier_en_stream() {
     const flux_lecture = createReadStream("./files/fichier1.txt", "utf-8")
     let message_complet = "ssss";
