@@ -26,9 +26,9 @@ test('test cas normal pour analyseFile', async () => {
         phraseCount: 0,
         wordCount: 8,
         letterCount: 198,
-        chunkCount: 1,
+        chunkCount: 2,
         stat: {
-            size: 205,
+            size: 205/1024,
             uid: 1000,
             gid: 1000
         }
@@ -52,7 +52,7 @@ test('test cas où le fichier n\'est pas donné', async () => {
         resultatObtenu = error.message;
     }
     //Assert
-    await assert.strictEqual(resultatObtenu, resultatAttendu);
+     assert.strictEqual(resultatObtenu, resultatAttendu);
 })
 
 test('test cas où le fichier n\'existe pas', async () => {
@@ -86,87 +86,79 @@ test('test cas où le fichier n\'est pas un fichier texte',async () => {
 
 
 
-// test('test cas normal pour getPhraseCount',() => {
-//     //Arrange 
-//     const resultatAttendu = 4;
-//     let content_file = "Ceci est une phrase. Ceci est une autre phrase. Et encore une autre phrase. ou l'est!";
-//     //Act
-//     const resultatObtenu = getPhraseCount(content_file);
-//     //Assert 
-//     assert.strictEqual(resultatAttendu, resultatObtenu)
-// })
+test('test cas normal pour getPhraseCount',() => {
+    //Arrange 
+    const resultatAttendu = 4;
+    let content_file = "Ceci est une phrase. Ceci est une autre phrase. Et encore une autre phrase. ou l'est!";
+    //Act
+    const resultatObtenu = getPhraseCount(content_file);
+    //Assert 
+    assert.strictEqual(resultatAttendu, resultatObtenu)
+})
 
 
-// test('test cas normal pour getWordCount',() => {
-//     //Arrange 
-//     const resultatAttendu = 16;
-//     let content_file = "Ceci est une phrase. Ceci est une autre phrase. Et encore une autre phrase et l'est.";
-//     //Act
-//     const resultatObtenu = getWordCount(content_file);
-//     //Assert 
-//     assert.strictEqual(resultatAttendu, resultatObtenu)
-// })
+test('test cas normal pour getWordCount',() => {
+    //Arrange 
+    const resultatAttendu = 16;
+    let content_file = "Ceci est une phrase. Ceci est une autre phrase. Et encore une autre phrase et l'est.";
+    //Act
+    const resultatObtenu = getWordCount(content_file);
+    //Assert 
+    assert.strictEqual(resultatAttendu, resultatObtenu)
+})
 
 
-// test('test cas normal pour getLetterCount',() => {
-//     //Arrange 
-//     const resultatAttendu = 8;
-//     const content_file = "Ceci.gfnf!:;:,;,";
-//     //Act
-//     const resultatObtenu = getLetterCount(content_file);
-//     //Assert 
-//     assert.strictEqual(resultatAttendu, resultatObtenu)
-// })
+test('test cas normal pour getLetterCount',() => {
+    //Arrange 
+    const resultatAttendu = 8;
+    const content_file = "Ceci.gfnf!:;:,;,";
+    //Act
+    const resultatObtenu = getLetterCount(content_file);
+    //Assert 
+    assert.strictEqual(resultatAttendu, resultatObtenu)
+})
 
 
-// test('test cas normal pour getChunkCount',async () => {
-//     //Arrange 
-//     const resultatAttendu = 5;
-//     //Act
-//     const resultatObtenu = await getChunkCount("./test.txt");
-//     //Assert 
-//     assert.strictEqual(resultatAttendu, resultatObtenu)
-// })
+test('test cas normal pour getChunkCount',async () => {
+    //Arrange 
+    const resultatAttendu = 5;
+    //Act
+    const resultatObtenu = await getChunkCount("./test.txt");
+    //Assert 
+    assert.strictEqual(resultatAttendu, resultatObtenu)
+})
 
 
-// test('test cas normal pour getStat',async () => {
-//     //Arrange 
-//     const resultatAttendu = {
-//         size: 205,
-//         uid: 1000,
-//         gid: 1000
-//     };
-//     //Act
-//     let resultatObtenu =await getStat("./test.txt");
-//     resultatObtenu = {
-//         size: resultatObtenu.size,
-//         uid: resultatObtenu.uid,
-//         gid: resultatObtenu.gid
-//     }
-//     //Assert 
-//     assert.deepStrictEqual(resultatAttendu, resultatObtenu)
-// })
+test('test cas normal pour getStat',async () => {
+    //Arrange 
+    const resultatAttendu = {
+        size: 205,
+        uid: 1000,
+        gid: 1000
+    };
+    //Act
+    let resultatObtenu =await getStat("./test.txt");
+    resultatObtenu = {
+        size: resultatObtenu.size,
+        uid: resultatObtenu.uid,
+        gid: resultatObtenu.gid
+    }
+    //Assert 
+    assert.deepStrictEqual(resultatAttendu, resultatObtenu)
+})
 
 
-// test('test cas où getStat donne une erreur',async () => {
-//     //Arrange 
-//     const resultatAttendu = STAT_NOT_READABLE;
-//     //Act
-//     let resultatObtenu;
-//     try {
-//         resultatObtenu = await getStat("./fichier_inexistant.txt");
-//     } catch (error) {
-//         resultatObtenu = error.message;
-//     }
-//     //Assert 
-//     assert.strictEqual(resultatAttendu, resultatObtenu)
-// })
+test('test cas où getStat donne une erreur',async () => {
+    //Arrange 
+    const resultatAttendu = STAT_NOT_READABLE;
+    //Act
+    let resultatObtenu;
+    try {
+        resultatObtenu = await getStat("./fichier_inexistant.txt");
+    } catch (error) {
+        resultatObtenu = error.message;
+    }
+    //Assert 
+    assert.strictEqual(resultatAttendu, resultatObtenu)
+})
 
-
-// test('test cas normal pour getChunkCount',async () => {
-//     const resultatAttendu = 5;
-//     //Act
-//     const resultatObtenu =  getChunkCount("./test.txt");
-//     //Assert 
-//     assert.strictEqual(resultatAttendu, resultatObtenu)
-// })    

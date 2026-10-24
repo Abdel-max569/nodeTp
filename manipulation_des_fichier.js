@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises'
 import { createReadStream, createWriteStream } from 'node:fs';
+import {json, text} from 'node:stream/consumers'
 
 // lire_fichier();
 // ecrire_dans_fichier()
@@ -64,7 +65,7 @@ async function lire_ecrire_fichier_avec_open() {
     }
 
 }
-afficher_statistiques_du_fichier()
+// afficher_statistiques_du_fichier()
 async function afficher_statistiques_du_fichier() {
     try {
         const stats = await fs.stat('./files/fichier1.txt');
@@ -101,3 +102,13 @@ function lire_fichier_en_stream() {
 
 
 }
+
+
+async function lire_fichier_avec__en_stream_avec_consumers(){
+    const flux_lecture = createReadStream("./files/fichier1.txt", "utf-8");
+    const data = await text(flux_lecture);
+    console.log(data)
+}
+
+
+

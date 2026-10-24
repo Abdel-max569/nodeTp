@@ -1,0 +1,8 @@
+• POST /api/auth/register : pour s'inscrire
+• POST /api/auth/login : pour se connecter 
+• GET /api/auth/me : pour voir son profil
+• POST /api/auth/logout : pour se deconnecter
+• POST /api/auth/forgot-password 
+• POST /api/auth/reset-password 
+
+

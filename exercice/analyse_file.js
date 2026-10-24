@@ -35,7 +35,7 @@ export async function analyseFile(nom_fichier) {
         letterCount,
         chunkCount,
         stat: {
-            size: stat.size,
+            size: stat.size / 1024,
             uid: stat.uid,
             gid: stat.gid
         }
@@ -88,7 +88,7 @@ export function getLetterCount(texte) {
 }
 
 export async function getChunkCount(nom_fichier) {
-    let chunkCount = 0;
+    let chunkCount = 1;
     const stream = createReadStream(nom_fichier,"utf8" );
 
     for await (const chunk of stream) {

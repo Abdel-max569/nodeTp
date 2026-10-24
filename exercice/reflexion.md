@@ -3,9 +3,9 @@
 ## Reflexion sur l'etat du fichier
 
 
-**.** Comment savoir si le fichier existe ? <br>
-**.** Comment identifier le type de fichier ? <br>
-**.** Comment parcourir le fichier et recuperer les mots, phrases et lettres ? <br>
+**.** Comment savoir si le fichier existe ? : Je vais utilisé la methode existsSync()<br>
+**.** Comment identifier le type de fichier ? : en utilisant endsWith()<br>
+**.** Comment parcourir le fichier et recuperer les mots, phrases et lettres ? : j'ai utilisé des reges<br>
 
 
 ## Reflexion sur comment detecter une phrase dans un fichier texte
@@ -19,3 +19,4 @@
 ## Reflexion sur comment detecter une lettre dans un fichier texte
 
 **.** Comment reconnaitre une lettre dans un fichier texte ? : c'est un caractère alphabétique ?<br>
+
