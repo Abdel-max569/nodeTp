@@ -1,8 +1,18 @@
-• POST /api/auth/register : pour s'inscrire
-• POST /api/auth/login : pour se connecter 
-• GET /api/auth/me : pour voir son profil
-• POST /api/auth/logout : pour se deconnecter
-• POST /api/auth/forgot-password 
-• POST /api/auth/reset-password 
+
+ --- ENDPOINTS pour l'authentification  ---
+ 
+POST   /api/auth/register       S'inscrire 
+POST   /api/auth/login          Se connecter (vérifier les identifiants et obtenir un Token)
+GET    /api/auth/me             Profil (voir les infos de l'utilisateur connecté)
+POST   /api/auth/logout         Se déconnecter (détruire le Token actif)
+
+POST   /api/auth/refresh-token    Rester connecté (générer un nouveau Token sans se reconnecter)
+POST   /api/auth/verify-email     Vérifier l'email 
+
+POST   /api/auth/forgot-password   Mot de passe oublié (demander un lien de réinitialisation par email)
+POST   /api/auth/reset-password    Modifier le mot de passe oublié 
+PUT    /api/auth/change-password   Changer le mot de passe (pour l'utilisateur déjà connecté)
+
+DELETE /api/auth/delete-account    Supprimer le compte 
 
 
