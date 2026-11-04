@@ -49,7 +49,9 @@ const app = createServer((request, response) => {
     const { url: endpoint, method: verb } = request;
 
     let url = `${verb}${endpoint}`
+
     console.log(url);
+    
 
     response.setHeader("Content-type", 'application/json');
 
@@ -69,14 +71,25 @@ const app = createServer((request, response) => {
             response.writeHead(200)
 
             const body = json(request);
-            body.then((value) => {
-                console.log(value);
+            body.then((value) => {               
                 let idPecedent = teams[teams.length-1].id
-                console.log(idPecedent);
-                
-                value.id = idPecedent + 1;
-                
-                teams.push(value)
+
+                 let new_team = {
+                    id:idPecedent + 1,
+                    cover:value.cover,
+                    name:value.name,
+                    players_number:value.players_number,
+                    coach:value.coach,
+                    capitaine:value.capitaine
+                }
+
+                // value.id = idPecedent + 1;
+
+                //spread operator
+                console.log([...teams,new_team]);
+                teams.push(new_team)
+
+                //pas
                 console.log(teams);
                 
             })
