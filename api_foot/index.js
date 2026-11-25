@@ -37,6 +37,19 @@ const teams = [
     }
 ]
 
+function getMax(users) {
+    if (users.length == 0) {
+        return 0;
+    }
+    let max_id = 1;
+    for (let user of users) {
+        if (user.id > max_id) {
+            max_id = user.id
+        }
+    }
+    return max_id;
+}
+
 
 const app = createServer((request, response) => {
     // console.log(request.url);
@@ -51,7 +64,7 @@ const app = createServer((request, response) => {
     let url = `${verb}${endpoint}`
 
     console.log(url);
-    
+
 
     response.setHeader("Content-type", 'application/json');
 
@@ -71,32 +84,32 @@ const app = createServer((request, response) => {
             response.writeHead(200)
 
             const body = json(request);
-            body.then((value) => {               
-                let idPecedent = teams[teams.length-1].id
+            body.then((value) => {
+                let idPecedent = teams[teams.length - 1].id
 
-                 let new_team = {
-                    id:idPecedent + 1,
-                    cover:value.cover,
-                    name:value.name,
-                    players_number:value.players_number,
-                    coach:value.coach,
-                    capitaine:value.capitaine
+                let new_team = {
+                    id: getMax(teams) + 1,
+                    cover: value.cover,
+                    name: value.name,
+                    players_number: value.players_number,
+                    coach: value.coach,
+                    capitaine: value.capitaine
                 }
 
                 // value.id = idPecedent + 1;
 
                 //spread operator
-                console.log([...teams,new_team]);
+                console.log([...teams, new_team]);
                 teams.push(new_team)
 
                 //pas
                 console.log(teams);
-                
+
             })
-            .catch((error)=>{
-                console.log(error);
-                
-            })
+                .catch((error) => {
+                    console.log(error);
+
+                })
 
 
             // request.on("data", (chunk) => {
